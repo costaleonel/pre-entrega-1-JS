@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+main.la3era{
+    height: 800px;
+    width: 100%;
+    background-image: url(./img/scaloneta.jpg);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-items: center;
+}
+.la3era{
+background-color: rgba(37, 28, 28, 0.452);
+width: 70%;
+padding: 20px;
+border: 5px solid rgb(5, 73, 104);
+text-align: center;
+}
+.la3era h1{
+    font-size: 40px;
+    color: rgb(252, 252, 252);
+}
+.la3era p{
+    font-size: 25px;
+    color: rgb(243, 243, 243);
+}

@@ -1,3 +1,11 @@
+function campeones(){
+    alert("hola campeon")
+    alert("estamos armando un sitio dedicado a la scaloneta")
+}
+campeones()
+
+
+
 let nombre = prompt("ingresa tu nombre");
 let apellido = prompt("ingresa tu apellido");
 let nombreCompleto = nombre + " " + apellido;

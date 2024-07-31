@@ -56,35 +56,46 @@ do{
 } while (condicion !== 0 );
 console.log("termino el bucle do while")
 
-alert("PARA PARA PARAAA, NO TE PODES IR SIN CONOCER NUESTRO CUERPO TECNICO");
+let tecnicosogoles = prompt("quieres conocer el cuerpo tecnico pon 1 o los goleadores de qatar 2022 pon 2?")
 
-const cuerpotec = [
-    {
-        id: 1,
-        nombre: "Lionel Scaloni",
-        puesto: "Director Tecnico",
-    },
-    {
-        id:2,
-        nombre: "Pablo Aimar",
-        puesto: "Ayudante de campo"
-    },
-    {
-        id:3,
-        nombre: "Walter Samuel",
-        puesto: "Ayudante de campo"
-    },
-    {
-        id:4,
-        nombre: "Roberto Ayala",
-        puesto: "Ayudante de campo"
-    },
-    {
-        id:5,
-        nombre: "Mario De Stefano alias MARITOO!!",
-        puesto: "Senior Utilero todo un Crack de la AFA"
-    }
-];
-for(let i = 0; i < cuerpotec.length; i++){
-    alert(cuerpotec[i].id + "- " + cuerpotec[i].nombre + "=" + cuerpotec[i].puesto)
-};
+if(tecnicosogoles == 1){
+    const cuerpotec = [
+        {
+            id: 1,
+            nombre: "Lionel Scaloni",
+            puesto: "Director Tecnico",
+        },
+        {
+            id:2,
+            nombre: "Pablo Aimar",
+            puesto: "Ayudante de campo"
+        },
+        {
+            id:3,
+            nombre: "Walter Samuel",
+            puesto: "Ayudante de campo"
+        },
+        {
+            id:4,
+            nombre: "Roberto Ayala",
+            puesto: "Ayudante de campo"
+        },
+        {
+            id:5,
+            nombre: "Mario De Stefano alias MARITOO!!",
+            puesto: "Senior Utilero todo un Crack de la AFA"
+        }
+    ];
+    for(let i = 0; i < cuerpotec.length; i++){
+        alert(cuerpotec[i].id + "- " + cuerpotec[i].nombre + "=" + cuerpotec[i].puesto)
+    };
+} else if(tecnicosogoles == 2){
+    alert("Veamos quienes hicieron los goles en Qatar 2022")
+const jugadores = ["Lionel Messi", "Julián Álvarez","Enzo Fernández", "Alexis Mac Allister", "Ángel Di María", "Nahuel Molina"];
+const goles = [7, 4, 1, 1, 1, 1];
+
+
+jugadores.forEach((jugador, index) => {
+    alert(`${jugador} hizo ${goles[index]} goles en el Mundial de Qatar 2022.`);
+});
+}

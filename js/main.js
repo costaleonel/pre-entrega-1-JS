@@ -50,13 +50,13 @@ do{
                 let mensajetrofeos = arraytrofeos.join("\n");
                 alert(mensajetrofeos);
         default:
-            alert("opcion invalida")
+            alert("tengo tanto humor negro que francia me quiere en su seleccion")
             break;
     }
 } while (condicion !== 0 );
 console.log("termino el bucle do while")
 
-let tecnicosogoles = prompt("quieres conocer el cuerpo tecnico pon 1 o los goleadores de qatar 2022 pon 2?")
+let tecnicosogoles = prompt("quieres conocer el cuerpo tecnico pon 1 o los goleadores de qatar 2022 pon 2 o escribe salir?")
 
 if(tecnicosogoles == 1){
     const cuerpotec = [
@@ -98,4 +98,6 @@ const goles = [7, 4, 1, 1, 1, 1];
 jugadores.forEach((jugador, index) => {
     alert(`${jugador} hizo ${goles[index]} goles en el Mundial de Qatar 2022.`);
 });
-}
+} else if (tecnicosogoles == "salir") {
+    alert("nos vemos cuando aprenda como hacerla bien jaja")
+};

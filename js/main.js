@@ -101,3 +101,40 @@ jugadores.forEach((jugador, index) => {
 } else if (tecnicosogoles == "salir") {
     alert("nos vemos cuando aprenda como hacerla bien jaja")
 };
+
+const arraytrofeos = ["2021 copa america Brasil","2022 Finalissima Italia", "2022 Mundial qatar", "2024 copa america USA",];
+
+function buscarCopaPorAno(ano) {
+    const resultado = arraytrofeos.filter(trofeo => trofeo.startsWith(ano));
+    return resultado.length > 0 ? resultado[0] : "No se encontró ninguna copa para ese año.";
+}
+
+function buscarCopa() {
+    const anoIngresado = document.getElementById("anoInput").value;
+    const copaGanada = buscarCopaPorAno(anoIngresado);
+    document.getElementById("resultado").textContent = copaGanada;
+}
+
+
+
+
+
+
+
+//form footer
+const nombreu = document.getElementById("nombreu");
+const edad = document.getElementById("edad");
+
+let miFormulario = document.getElementById("formulario");
+miFormulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const objeto = {
+        nombreu: nombreu.value,
+        edad: edad.value,
+    }
+    console.log("Enviado", objeto);
+
+    nombreu.value = "";
+    edad.value = "";
+});

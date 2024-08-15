@@ -27,3 +27,85 @@ text-align: center;
     font-size: 25px;
     color: rgb(243, 243, 243);
 }
+
+.copas h1 label{
+    color:rgb(252, 252, 252);
+}
+.copas label{
+    color: #aebbc8;
+}
+.copas {
+    width: 60%;
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 20px;
+    border: 2px solid #007bff; /* Borde azul */
+    border-radius: 10px;
+    background-color: rgba(37, 28, 28, 0.452);
+}
+
+/* style card camisetas */
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+    justify-content:space-around !important;
+    background-color: #0c55a3;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.card button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 14px;
+    transition: background-color 0.2s;
+};
+
+.card button:hover {
+    background-color: #0056b3;
+};
+
+footer h2{
+    color: #ccc;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+}
+#formulario{
+    margin-top: 30px;
+}
+footer{
+    border: 8px solid #0000;
+    font-size: 20px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-color: #007bff;
+    height: 150px;
+    width: auto;
+}

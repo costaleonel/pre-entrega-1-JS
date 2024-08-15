@@ -15,7 +15,27 @@
         <div class="audio">
             <audio src="./img/Bizarrap, Duki, La T y La M - 3 Estrellas en Conjunto.mp3" controls autoplay></audio>
         </div>
-        <script src="js/main.js"></script>
+        <div class="copas">
+            <h1>Copas Ganadas</h1>
+            <label for="anoInput">Ingresa el año de la copa que quieres buscar:</label>
+            <input type="text" id="anoInput" placeholder="Ej. 2022">
+            <button onclick="buscarCopa()">Buscar Copa</button>
+            
+            <p id="resultado"></p>
+        </div>
     </main>
+    <div id="container"></div>
+    <footer>
+        <h2>Quieres subcribirte para recibir noticias de los jugadores?</h2>
+        <form id="formulario">
+            <input id="nombreu" placeholder="nombre" type="text">
+            <input id="mail" placeholder="mail" type="text">
+            <input id="edad" placeholder="edad" type="number">
+            <input type="submit" value="enviar">
+        </form>
+        
+    </footer>
+    <script src="camisetas.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

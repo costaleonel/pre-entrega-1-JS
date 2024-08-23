@@ -4,16 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Scaloneta</title>
 </head>
+<header>
+    <div id="app" class="inicio"></div>
+</header>
 <body>
+    <div class="equipo">
+        <h1>Mira los jugadores</h1>
+        <form id="playerForm">
+        <label for="option">¿Qué posicion quieres conocer?</label>
+        <select id="option" name="option">
+            <option value="0">Salir</option>
+            <option value="1">Arqueros</option>
+            <option value="2">Defensores</option>
+            <option value="3">Mediocampistas</option>
+            <option value="4">Delanteros</option>
+        </select>
+            <button type="submit">Vamos</button>
+        </form>
+    </div>
     <main class="la3era">
         <div class="la3era">
             <h1>Scaloneta</h1>
             <p>Como no emocionarnos con nuestra sellecion? como no ilusionarnos?  SI LLEVAMOS LOS COLORES DEL CIELO EN EL PECHO!!!!!</p>
         </div>
         <div class="audio">
-            <audio src="./img/Bizarrap, Duki, La T y La M - 3 Estrellas en Conjunto.mp3" controls autoplay></audio>
+            <audio src="./img/Letra _ Albiceleste - VIUS (DALE DALE SELECCIÓN)_-7uq6x-IR0I.mp3" controls ></audio>
+            <audio src="./img/Bizarrap, Duki, La T y La M - 3 Estrellas en Conjunto.mp3" controls ></audio>
         </div>
         <div class="copas">
             <h1>Copas Ganadas</h1>
@@ -25,6 +44,10 @@
         </div>
     </main>
     <div id="container"></div>
+    <div class="goleadores">
+        <h1 id="Bienvenido"></h1>
+        <button id="ver-goleadores">Ver Goleadores</button>
+    </div>
     <footer>
         <h2>Quieres subcribirte para recibir noticias de los jugadores?</h2>
         <form id="formulario">
@@ -35,7 +58,6 @@
         </form>
         
     </footer>
-    <script src="./js/camisetas.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

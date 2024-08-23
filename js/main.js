@@ -1,107 +1,230 @@
-function campeones(){
-    alert("hola campeon")
-    alert("estamos armando un sitio dedicado a la scaloneta")
+
+
+///// inicio es el formulario de nombre (ser si puedo achicar codigo me quedo gigante)//////////
+const app = document.getElementById('app');
+
+const form = document.createElement('form');
+form.id = 'formulario';
+
+const inputNombre = document.createElement('input');
+inputNombre.type = 'text';
+inputNombre.placeholder = 'Nombre';
+inputNombre.id = 'nombre';
+inputNombre.required = true;
+
+const inputApellido = document.createElement('input');
+inputApellido.type = 'text';
+inputApellido.placeholder = 'Apellido';
+inputApellido.id = 'apellido';
+inputApellido.required = true;
+
+const labelArgentino = document.createElement('label');
+labelArgentino.textContent = '¿Eres argentino?';
+labelArgentino.style.color = '#ffffff';
+labelArgentino.style.fontSize = '18px';
+labelArgentino.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+labelArgentino.style.padding = '5px 10px';
+labelArgentino.style.border = '1px solid #007bff';
+labelArgentino.style.borderRadius = '5px';
+
+
+const selectArgentino = document.createElement('select');
+selectArgentino.id = 'argentino';
+selectArgentino.required = true;
+
+const optionSi = document.createElement('option');
+optionSi.value = 'si';
+optionSi.textContent = 'Sí';
+
+const optionNo = document.createElement('option');
+optionNo.value = 'no';
+optionNo.textContent = 'No';
+
+
+selectArgentino.appendChild(optionSi);
+selectArgentino.appendChild(optionNo);
+
+form.appendChild(inputNombre);
+form.appendChild(document.createElement('br'));
+form.appendChild(inputApellido);
+form.appendChild(document.createElement('br'));
+form.appendChild(labelArgentino);
+form.appendChild(selectArgentino);
+form.appendChild(document.createElement('br'));
+form.appendChild(document.createElement('br'));
+
+const submitButton = document.createElement('button');
+submitButton.type = 'submit';
+submitButton.textContent = 'Enviar';
+
+form.appendChild(submitButton);
+
+app.appendChild(form);
+
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const nombre = inputNombre.value;
+    const apellido = inputApellido.value;
+    const esArgentino = selectArgentino.value;
+    
+    const usuario = {
+        nombre: nombre,
+        apellido: apellido,
+        argentino: esArgentino
+    };
+    
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+    
+    const usuarioGuardado = JSON.parse(localStorage.getItem('usuario'));
+    
+    let mensajeFinal = `Bienvenido, ${usuarioGuardado.nombre} ${usuarioGuardado.apellido}. `;
+    
+    if (usuarioGuardado.argentino === 'si') {
+        mensajeFinal += "¡Vamos campeón mundial!";
+    } else {
+        mensajeFinal += "Lástima, Argentina es el país de la pasión.";
+    }
+    Swal.fire({
+        title: '¡Éxito!',
+        text: mensajeFinal,
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+    }).then(() => {
+        location.reload();
+    });
+
+    form.reset();
+});
+
+
+
+const arqueros = [
+    "EMILIANO MARTINEZ n°23 actual Aston Villa alias: El Dibu",
+    "Franco Armani n°1 actual River Plate",
+    "Gerónimo Rulli n°12 actual Ajax"
+];
+
+const defensores = [
+    "Gonzalo Montiel n°4 actual Nottingham Forest F. C",
+    "Nahuel Molina n°26 actual Atlético de Madrid",
+    "Cristian Romero n°13 actual Tottenham Hotspur F. C",
+    "Germán Pezzella n°6 actual Real Betis Balompié",
+    "Lucas Martínez Quarta n°2 actual ACF Fiorentina",
+    "Nicolás Otamendi n°19 actual SL Benfica",
+    "Lisandro Martínez n°25 actual Manchester United F. C",
+    "Marcos Acuña n°8 actual Sevilla FC",
+    "Nicolás Tagliafico n°3 actual Olympique de Lyon"
+];
+
+const mediocampistas = [
+    "Guido Rodríguez n°18 actual Real Betis Balompié",
+    "Leandro Paredes n°5 actual AS Roma",
+    "Alexis Mac Allister n°20 actual Real Madrid CF",
+    "Rodrigo De Paul n°7 actual Atlético de Madrid",
+    "Exequiel Palacios n°14 actual Bayer 04 Leverkusen",
+    "Enzo Fernández n°24 actual Chelsea F. C",
+    "Giovani Lo Celso n°16 actual Villarreal CF"
+];
+
+const delanteros = [
+    "Lionel Messi n°10 actual Inter Miami",
+    "Ángel Di María n°11 actual Libre",
+    "Valentín Carboni n°21 actual AC Monza",
+    "Alejandro Garnacho n°17 actual Manchester United F. C",
+    "Nicolás González n°15 actual ACF Fiorentina",
+    "Lautaro Martínez n°22 actual Inter de Milán",
+    "Julián Álvarez n°9 actual Manchester City"
+];
+
+
+function mostrarInformacion(titulo, contenido) {
+    Swal.fire({
+        title: titulo,
+        text: contenido.join("\n"),
+        icon: 'info',
+        confirmButtonText: 'Aceptar'
+    });
 }
-campeones()
 
 
-
-let nombre = prompt("ingresa tu nombre");
-let apellido = prompt("ingresa tu apellido");
-let nombreCompleto = nombre + " " + apellido;
-let mensajefinal = "Bienvenido, " + nombreCompleto;
-alert(mensajefinal);
-console.log("BienVenido a nuestra pagina de la scaloneta")
-
-let nacion = prompt("eres argentino?")
-if(nacion == "si"){
-    alert("Vamos campeon mundial")
-} else if(nacion == "no"){
-    alert("bueno no tuviste la suerte de nacer en la tierra del asado, el fernet, el futbol, MESSI Y MARADONA")
-}
-
-let condicion
-do{
-    condicion = parseInt(prompt("Quieres saber de los jugadores? \n1 Arqueros \n2 Defensores  \n3 Mediocampistas \n4 Delanteros \n5 quieres conocer los campeonatos ganados  \n0 para salir "))
-    switch (condicion) {
+document.getElementById('playerForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const option = parseInt(document.getElementById('option').value);
+    
+    switch (option) {
         case 0:
-            alert("anda pa alla bobo")
+            Swal.fire({
+                title: 'Salida',
+                text: 'Anda pa’ allá bobo',
+                icon: 'warning',
+                confirmButtonText: 'Aceptar'
+            }).then(() => {
+                setTimeout(() => {
+                    console.log("Terminó el bucle");
+                }, 1000);
+            });
             break;
         case 1:
-            const arrayarqueros = ["\n EMILIANO MARTINEZ n°23 actual Aston Villa alias:El dibu \nFranco armani n°1 actual Riber Plate  \nGeronimo Rulli n°12 actual Ajax"];
-            let mensajearqueros = arrayarqueros.join("\n");
-            alert(mensajearqueros);
+            mostrarInformacion('Arqueros', arqueros);
             break;
         case 2:
-            let Defensores= "\n Gonzalo Montiel n°4 actual  Nottingham Forest F. C \n Nahuel Molina n°26 actual Atlético de Madrid  \n Cristian Romero n°13 actual Tottenham Hotspur F. C \n Germán Pezzella n°6 actual Real Betis Balompié \n Lucas Martínez Quarta n°2 actual ACF Fiorentina \n Nicolás Otamendi n°19 actual S. L. Benfica \n Lisandro Martínez n°25 actual Manchester United F. C \n Marcos Acuña n°8 actual Sevilla F.C \n Nicolás Tagliafico n°3 actual Olympique de Lyon"
-            alert(Defensores)
+            mostrarInformacion('Defensores', defensores);
             break;
-
         case 3:
-            let Mediocampistas = "\n Guido Rodríguez n°18 actual Real Betis Balompié \n Leandro Paredes n°5 actual A. S. Roma \n Alexis Mac Allister n°20 actual  Real Madrid C. F. \n Rodrigo De Paul n°7 actual Atlético de Madrid \n Exequiel Palacios n°14 actual Bayer 04 Leverkusen \n Enzo Fernández n°24 actual Chelsea F. C n/ Giovani Lo Celso n°16 actual Villarreal C. F."
-            alert(Mediocampistas)
+            mostrarInformacion('Mediocampistas', mediocampistas);
             break;
         case 4:
-            let Delanteros = "\n Lionel Messi n°10 actual Inter Miami \n Ángel Di María n°11 actual Libre \n Valentín Carboni n°21 actual A. C. Monza \n Alejandro Garnacho n°17 actual Manchester United F. C \n Nicolás González n°15 actual ACF Fiorentina \n Lautaro Martínez n°22 actual Inter de Milán \n Julián Álvarez n°9 actual Manchester City"
-            alert(Delanteros)
+            mostrarInformacion('Delanteros', delanteros);
             break;
-        case 5:
-                const arraytrofeos = ["2021 copa america", "2022 mundial qatar", "2024 copa america"];
-                let mensajetrofeos = arraytrofeos.join("\n");
-                alert(mensajetrofeos);
         default:
-            alert("tengo tanto humor negro que francia me quiere en su seleccion")
+            Swal.fire({
+                title: 'Error',
+                text: 'Opción no válida',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
             break;
     }
-} while (condicion !== 0 );
-console.log("termino el bucle do while")
-
-let tecnicosogoles = prompt("quieres conocer el cuerpo tecnico pon 1 o los goleadores de qatar 2022 pon 2 o escribe salir?")
-
-if(tecnicosogoles == 1){
-    const cuerpotec = [
-        {
-            id: 1,
-            nombre: "Lionel Scaloni",
-            puesto: "Director Tecnico",
-        },
-        {
-            id:2,
-            nombre: "Pablo Aimar",
-            puesto: "Ayudante de campo"
-        },
-        {
-            id:3,
-            nombre: "Walter Samuel",
-            puesto: "Ayudante de campo"
-        },
-        {
-            id:4,
-            nombre: "Roberto Ayala",
-            puesto: "Ayudante de campo"
-        },
-        {
-            id:5,
-            nombre: "Mario De Stefano alias MARITOO!!",
-            puesto: "Senior Utilero todo un Crack de la AFA"
-        }
-    ];
-    for(let i = 0; i < cuerpotec.length; i++){
-        alert(cuerpotec[i].id + "- " + cuerpotec[i].nombre + "=" + cuerpotec[i].puesto)
-    };
-} else if(tecnicosogoles == 2){
-    alert("Veamos quienes hicieron los goles en Qatar 2022")
-const jugadores = ["Lionel Messi", "Julián Álvarez","Enzo Fernández", "Alexis Mac Allister", "Ángel Di María", "Nahuel Molina"];
-const goles = [7, 4, 1, 1, 1, 1];
-
-
-jugadores.forEach((jugador, index) => {
-    alert(`${jugador} hizo ${goles[index]} goles en el Mundial de Qatar 2022.`);
 });
-} else if (tecnicosogoles == "salir") {
-    alert("nos vemos cuando aprenda como hacerla bien jaja")
-};
 
+
+
+const usuarioGuardado = JSON.parse(localStorage.getItem('usuario'));
+
+
+const jugadores = [
+    { nombre: "Lionel Messi", goles: 1 },
+    { nombre: "Lautaro Martínez", goles: 5 },
+    { nombre: "Lisandro Martinez", goles: 1 },
+    { nombre: "Julián Álvarez", goles: 2 }
+];
+
+function mostrarGoleadores() {
+    jugadores.forEach((jugador, index) => {
+        setTimeout(() => {
+            Swal.fire({
+                title: `${jugador.nombre}`,
+                text: `Hizo ${jugador.goles} goles en la Copa América 2024.`,
+                icon: 'info',
+                confirmButtonText: 'Siguiente'
+            });
+        }, index * 1000); 
+    });
+}
+
+document.getElementById('Bienvenido').textContent = `Hola, ${usuarioGuardado.nombre}. ¿Quieres saber qué jugadores argentinos hicieron goles en la Copa América 2024?`;
+
+document.getElementById('ver-goleadores').addEventListener('click', mostrarGoleadores);
+
+
+
+
+
+
+/////////////////copas////////////
 const arraytrofeos = ["2021 copa america Brasil","2022 Finalissima Italia", "2022 Mundial qatar", "2024 copa america USA",];
 
 function buscarCopaPorAno(ano) {
